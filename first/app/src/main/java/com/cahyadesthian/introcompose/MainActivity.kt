@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -34,16 +35,10 @@ class MainActivity : ComponentActivity() {
                     // Pascal Case untuk nama component -> besar di awal misal FirstName
                     // camelCase untuk attribut
                     
-                    Column {
-                        Text(text = "Cahyadesthian")
-                        Divider(modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp)
-                            .absolutePadding(left=16.dp, top = 80.dp)
-                        )
-                        Button(onClick = {  }) {
-                            Text(text = "Widigda")                            
-                        }
+                    Canvas(
+                        modifier = Modifier.size(48.dp)
+                    ) {
+                        drawCircle(color = Color.Green)
                     }
                     
                 }
