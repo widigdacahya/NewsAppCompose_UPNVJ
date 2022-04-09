@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
@@ -34,11 +35,14 @@ class MainActivity : ComponentActivity() {
                     
                     // Pascal Case untuk nama component -> besar di awal misal FirstName
                     // camelCase untuk attribut
-                    Image(
-                        modifier = Modifier.size(96.dp),
-                        painter = painterResource(id = R.drawable.ic_favorite),
-                        contentDescription = "Image Favourite",
-                    )
+                    
+                    Column() {
+                        Text(text= "Cahyadesthian")
+                        Button(onClick = { /**/ }) {
+                            Text(text = "Rizki")
+                        }
+                        Text(text = "Widigda")
+                    }
                     
                 }
             }
