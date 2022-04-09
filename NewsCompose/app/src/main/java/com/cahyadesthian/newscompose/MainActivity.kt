@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -103,7 +104,9 @@ fun NewsList(newsList: List<News>) {
 fun NewsListItem(news: News) {
 
     Box(
-        modifier = Modifier.padding(16.dp),
+        modifier = Modifier
+            //.padding(16.dp)
+            .clickable {  },
     ) {
 
         Row(
@@ -113,7 +116,9 @@ fun NewsListItem(news: News) {
             * every element, in this case
             * it would adapt following image size
             * */
-            modifier = Modifier.height(IntrinsicSize.Min)
+            modifier = Modifier
+                .height(IntrinsicSize.Min)
+                .padding(16.dp)
 
 
         ) {
