@@ -1,5 +1,6 @@
 package com.cahyadesthian.newscompose
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -103,10 +105,23 @@ fun NewsList(newsList: List<News>) {
 @Composable
 fun NewsListItem(news: News) {
 
+    val context = LocalContext.current
+
     Box(
         modifier = Modifier
             //.padding(16.dp)
-            .clickable {  },
+            .clickable {
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("extra_id", news.id)
+
+                /*
+                * why tida send smua daata?
+                * karena intent ada batasannya dan lebi baik yg penting aja
+                * */
+
+                context.startActivity(intent)
+
+            },
     ) {
 
         Row(
