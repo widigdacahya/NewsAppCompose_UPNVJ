@@ -8,10 +8,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -37,9 +34,13 @@ class MainActivity : ComponentActivity() {
                     // Pascal Case untuk nama component -> besar di awal misal FirstName
                     // camelCase untuk attribut
                     
-                    Row {
+                    Column {
                         Text(text = "Cahyadesthian")
-                        Spacer(modifier = Modifier.width(40.dp))
+                        Divider(modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
+                            .absolutePadding(left=16.dp, top = 80.dp)
+                        )
                         Button(onClick = {  }) {
                             Text(text = "Widigda")                            
                         }
