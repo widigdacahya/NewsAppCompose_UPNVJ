@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
 
                     Column() {
                         Header()
-                        NewsList(newList = newsList)
+                        NewsList(newsList = newsList)
                     }
 
 
@@ -52,8 +53,8 @@ fun Header() {
     * */
     Box(
         modifier = Modifier
-                    .padding(16.dp)
-                    .fillMaxWidth(),
+            .padding(16.dp)
+            .fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
         Image(
@@ -66,6 +67,44 @@ fun Header() {
 
 
 @Composable
-fun NewsList(newList: List<News>) {
+fun NewsList(newsList: List<News>) {
+
+    LazyColumn {
+        items(newsList.size) {
+            //news row
+            NewsListItem(newsList[it])
+        }
+    }
+
+
+}
+
+
+@Composable
+fun NewsListItem(news: News) {
+
+    Box() {
+
+        Row() {
+            //Left side - News Info
+            Column(
+                modifier = Modifier
+                    .weight(3f)
+            ) {
+
+            }
+
+            //Right side -News Image
+            Image(
+                modifier = Modifier
+                    .aspectRatio(1f)
+                    .weight(1f),
+                painter = rememberAsyncImagePainter(news.imageUrl ),
+                contentDescription = "News Image"
+            )
+        }
+
+
+    }
 
 }
