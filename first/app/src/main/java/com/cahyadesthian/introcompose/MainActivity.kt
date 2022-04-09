@@ -37,9 +37,9 @@ class MainActivity : ComponentActivity() {
                     // Pascal Case untuk nama component -> besar di awal misal FirstName
                     // camelCase untuk attribut
                     
-                    Column {
+                    Row {
                         Text(text = "Cahyadesthian")
-                        Spacer(modifier = Modifier.height(40.dp))
+                        Spacer(modifier = Modifier.width(40.dp))
                         Button(onClick = {  }) {
                             Text(text = "Widigda")                            
                         }
