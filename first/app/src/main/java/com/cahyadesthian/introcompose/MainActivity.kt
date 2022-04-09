@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -16,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cahyadesthian.introcompose.ui.theme.IntroComposeTheme
 
@@ -33,6 +35,7 @@ class MainActivity : ComponentActivity() {
                     // Pascal Case untuk nama component -> besar di awal misal FirstName
                     // camelCase untuk attribut
                     Image(
+                        modifier = Modifier.size(96.dp),
                         painter = painterResource(id = R.drawable.ic_favorite),
                         contentDescription = "Image Favourite",
                     )
