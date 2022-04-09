@@ -17,8 +17,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.semantics.Role.Companion.Image
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.cahyadesthian.newscompose.model.News
 import com.cahyadesthian.newscompose.repository.NewsRepository
@@ -98,7 +101,22 @@ fun NewsListItem(news: News) {
                     .weight(3f)
             ) {
 
+
+                //news title
+                Text(
+                    text= news.title,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Black,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 2
+                )
+
+
             }
+
+            //Spacer antara right side dna left side
+            //make the ui more beautiful(tida dempet)
+            Spacer(modifier = Modifier.width(12.dp))
 
             //Right side -News Image
             Image(
