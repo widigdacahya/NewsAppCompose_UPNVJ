@@ -1,6 +1,7 @@
 package com.cahyadesthian.introcompose
 
 import android.os.Bundle
+import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -36,12 +37,11 @@ class MainActivity : ComponentActivity() {
                     // Pascal Case untuk nama component -> besar di awal misal FirstName
                     // camelCase untuk attribut
                     
-                    val names = listOf("Cahyadsethian","Rizki","Widigda","Dido","Rizki","Desthian")
-
-                    
-                    LazyColumn() {
-                        items(names.size) { index ->
-                            Text(names[index])
+                    Column {
+                        Text(text = "Cahyadesthian")
+                        Spacer(modifier = Modifier.height(40.dp))
+                        Button(onClick = {  }) {
+                            Text(text = "Widigda")                            
                         }
                     }
                     
