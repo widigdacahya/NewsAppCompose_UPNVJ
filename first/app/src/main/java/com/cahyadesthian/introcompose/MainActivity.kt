@@ -4,10 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -37,12 +36,13 @@ class MainActivity : ComponentActivity() {
                     // Pascal Case untuk nama component -> besar di awal misal FirstName
                     // camelCase untuk attribut
                     
-                    Row() {
-                        Text(text= "Cahyadesthian")
-                        Button(onClick = { /**/ }) {
-                            Text(text = "Rizki")
+                    val names = listOf("Cahyadsethian","Rizki","Widigda","Dido","Rizki","Desthian")
+
+                    
+                    LazyColumn() {
+                        items(names.size) { index ->
+                            Text(names[index])
                         }
-                        Text(text = "Widigda")
                     }
                     
                 }
