@@ -5,9 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -65,7 +67,7 @@ fun Header() {
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Image(
             modifier = Modifier.width(160.dp),
@@ -83,6 +85,13 @@ fun NewsList(newsList: List<News>) {
         items(newsList.size) {
             //news row
             NewsListItem(newsList[it])
+
+            Divider(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(2.dp)
+                    .absolutePadding(left=16.dp, right = 16.dp)
+            )
         }
     }
 
@@ -97,11 +106,23 @@ fun NewsListItem(news: News) {
         modifier = Modifier.padding(16.dp),
     ) {
 
-        Row() {
+        Row(
+            /*
+            * Since we dont know how heigt is the row
+            * so we will get it by min height that could contain
+            * every element, in this case
+            * it would adapt following image size
+            * */
+            modifier = Modifier.height(IntrinsicSize.Min)
+
+
+        ) {
             //Left side - News Info
             Column(
                 modifier = Modifier
                     .weight(3f)
+                    .fillMaxHeight(),
+                verticalArrangement = Arrangement.SpaceBetween,
             ) {
 
 
@@ -113,8 +134,11 @@ fun NewsListItem(news: News) {
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 2
                 )
-                
-                Spacer(modifier = Modifier.height(8.dp))
+
+                //replaced with vertical arrangemtn
+                //biar bisa title paling atas row
+                //info author date di bawah
+                //Spacer(modifier = Modifier.height(8.dp))
 
                 //author and date section
                 Row(
