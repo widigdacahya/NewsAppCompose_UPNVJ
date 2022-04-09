@@ -28,6 +28,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.cahyadesthian.newscompose.model.News
 import com.cahyadesthian.newscompose.repository.NewsRepository
 import com.cahyadesthian.newscompose.ui.theme.NewsComposeTheme
+import com.cahyadesthian.newscompose.util.DateFormatUtil
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -139,7 +140,8 @@ fun NewsListItem(news: News) {
 
                     //date
                    Text(
-                       text =news.date,
+                       //text =news.date,
+                       text = DateFormatUtil.formatDate(news.date),
                        fontSize = 12.sp
                    )
 
