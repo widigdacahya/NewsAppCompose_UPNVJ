@@ -3,6 +3,7 @@ package com.cahyadesthian.newscompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.font.FontWeight
@@ -110,6 +112,40 @@ fun NewsListItem(news: News) {
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 2
                 )
+                
+                Spacer(modifier = Modifier.height(8.dp))
+
+                //author and date section
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+
+                    //author text
+                    Text(
+                        text=news.author,
+                        fontSize = 12.sp
+                    )
+
+                    Spacer(modifier = Modifier.width(4.dp))
+
+                    //bullet
+                    Canvas(
+                        modifier = Modifier.size(4.dp),
+                    ) {
+                        drawCircle(Color.Gray)
+                    }
+
+                    Spacer(modifier = Modifier.width(4.dp))
+
+                    //date
+                   Text(
+                       text =news.date,
+                       fontSize = 12.sp
+                   )
+
+
+
+                }
 
 
             }
